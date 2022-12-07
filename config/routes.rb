@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
   end
   
+  resources :groups, expect: [:destroy]
+  
   get "search" => "searches#search"
 
 
