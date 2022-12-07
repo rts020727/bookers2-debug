@@ -14,15 +14,17 @@
             <th></th>
             <th>グループ名</th>
             <th>紹介文</th>
+            <th>グループ数</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <% @groups.each do |group| %>
           <tr>
-            <td><%= image_tag group.image, size: "100x100" %></td>
+            <td><%= image_tag group.get_image, size: '100x100' %></td>
             <td><%= link_to group.name, group_path(group.id) %></td>
             <td><%= group.introduction %></td>
+            <td><%= group.users.count %></td>
             <% if group.owner_id == current_user.id %>
               <td><%= link_to "Edit", edit_group_path(group.id), class: 'btn btn-success' %></td>
             <% else %>
