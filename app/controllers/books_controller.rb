@@ -44,6 +44,14 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
+  
+  def search
+    maps = Map.where(latitude: params[:lat]).where(longitude: params[:lng])
+    @marker_arr =[]
+    maps.each do |map|
+          #pushメソッドは配列に値を入れるメソッド
+    @marker_arr.push(map.book)
+  end
 
   private
 

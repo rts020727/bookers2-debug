@@ -83,10 +83,10 @@ ActiveRecord::Schema.define(version: 2022_12_15_104721) do
 
   create_table "maps", force: :cascade do |t|
     t.string "address"
+    t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "latitude"
   end
 
   create_table "relationships", force: :cascade do |t|
